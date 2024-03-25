@@ -197,8 +197,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
             child: Container(
               padding:
                   widget.padding ?? const EdgeInsets.symmetric(vertical: 8.0),
-              margin: widget.margin ??
-                  const EdgeInsets.only(left: 16, top: 16, right: 16),
+              margin: widget.margin ?? const EdgeInsets.only(top: 16),
               child: TextFormField(
                 key: widget.cardNumberKey,
                 obscureText: widget.obscureNumber,
@@ -230,8 +229,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
                   child: Container(
                     padding: widget.padding ??
                         const EdgeInsets.symmetric(vertical: 8.0),
-                    margin: widget.margin ??
-                        const EdgeInsets.only(left: 16, top: 8, right: 16),
+                    margin: widget.margin ?? const EdgeInsets.only(top: 8),
                     child: TextFormField(
                       key: widget.expiryDateKey,
                       controller: _expiryDateController,
@@ -264,7 +262,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
                     padding: widget.padding ??
                         const EdgeInsets.symmetric(vertical: 8.0),
                     margin: widget.margin ??
-                        const EdgeInsets.only(left: 16, top: 8, right: 16),
+                        const EdgeInsets.only(left: 16, top: 8),
                     child: TextFormField(
                       key: widget.cvvCodeKey,
                       obscureText: widget.obscureCvv,
@@ -298,8 +296,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
             child: Container(
               padding:
                   widget.padding ?? const EdgeInsets.symmetric(vertical: 8.0),
-              margin: widget.margin ??
-                  const EdgeInsets.only(left: 16, top: 8, right: 16),
+              margin: widget.margin ?? const EdgeInsets.only(top: 8),
               child: TextFormField(
                 key: widget.cardHolderKey,
                 controller: _cardHolderNameController,
