@@ -35,6 +35,8 @@ class CreditCardForm extends StatefulWidget {
     this.cardHolderValidator,
     this.onFormComplete,
     this.disableCardNumberAutoFillHints = false,
+    this.padding,
+    this.margin,
     super.key,
   });
 
@@ -134,6 +136,10 @@ class CreditCardForm extends StatefulWidget {
   /// [https://github.com/flutter/flutter/issues/104604](https://github.com/flutter/flutter/issues/104604).
   final bool disableCardNumberAutoFillHints;
 
+  final EdgeInsetsGeometry? padding;
+
+  final EdgeInsetsGeometry? margin;
+
   @override
   State<CreditCardForm> createState() => _CreditCardFormState();
 }
@@ -189,8 +195,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
           Visibility(
             visible: widget.isCardNumberVisible,
             child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              margin: const EdgeInsets.only(left: 16, top: 16, right: 16),
+              padding:
+                  widget.padding ?? const EdgeInsets.symmetric(vertical: 8.0),
+              margin: widget.margin ??
+                  const EdgeInsets.only(left: 16, top: 16, right: 16),
               child: TextFormField(
                 key: widget.cardNumberKey,
                 obscureText: widget.obscureNumber,
@@ -220,8 +228,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
                 visible: widget.isExpiryDateVisible,
                 child: Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
+                    padding: widget.padding ??
+                        const EdgeInsets.symmetric(vertical: 8.0),
+                    margin: widget.margin ??
+                        const EdgeInsets.only(left: 16, top: 8, right: 16),
                     child: TextFormField(
                       key: widget.expiryDateKey,
                       controller: _expiryDateController,
@@ -251,8 +261,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
                 child: Visibility(
                   visible: widget.enableCvv,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
+                    padding: widget.padding ??
+                        const EdgeInsets.symmetric(vertical: 8.0),
+                    margin: widget.margin ??
+                        const EdgeInsets.only(left: 16, top: 8, right: 16),
                     child: TextFormField(
                       key: widget.cvvCodeKey,
                       obscureText: widget.obscureCvv,
@@ -284,8 +296,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
           Visibility(
             visible: widget.isHolderNameVisible,
             child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
+              padding:
+                  widget.padding ?? const EdgeInsets.symmetric(vertical: 8.0),
+              margin: widget.margin ??
+                  const EdgeInsets.only(left: 16, top: 8, right: 16),
               child: TextFormField(
                 key: widget.cardHolderKey,
                 controller: _cardHolderNameController,
